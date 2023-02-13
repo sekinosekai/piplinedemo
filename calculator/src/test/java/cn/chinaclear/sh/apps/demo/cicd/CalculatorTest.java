@@ -32,13 +32,18 @@ public class CalculatorTest {
   }
 
   @Test
+  public void testMultiply() throws Exception {
+    assertEquals(10, calculator.calc(2, 5, '*'));
+  }
+
+  @Test
   public void testWrongOperator() {
     assertThrows("", IllegalArgumentException.class, () -> {
       calculator.calc(5, 2, '^');
     });
   }
 
-  @org.junit.Test
+  @Test
   public void testDivide() throws Exception{
       calculator.calc(1, 0, '/');
   }
