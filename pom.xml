@@ -33,11 +33,4 @@
       </plugin>
     </plugins>
   </build>
-  <distributionManagement>
-    <repository>
-      <id>nexus-tst</id>
-      <name>Nexus Test</name>
-      <url>http://10.164.6.24:30245/repository/csdcc_sh_tst_repo/</url>
-    </repository>
-  </distributionManagement>
 </project>
