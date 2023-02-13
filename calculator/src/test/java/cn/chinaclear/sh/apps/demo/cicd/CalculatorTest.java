@@ -1,3 +1,9 @@
+/*
+ * @Author: Yuyuan SHI
+ * @Date: 2023-02-10
+ * @FilePath: /piplinedemo/calculator/src/test/java/cn/chinaclear/sh/apps/demo/cicd/CalculatorTest.java
+ * 
+ */
 package cn.chinaclear.sh.apps.demo.cicd;
 
 
@@ -18,6 +24,11 @@ public class CalculatorTest {
   @Test
   public void testSubtract() throws Exception {
     assertEquals(-3, calculator.calc(2, 5, '-'));
+  }
+
+  @Test
+  public void testAdd() throws Exception {
+    assertEquals(7, calculator.calc(2, 5, '+'));
   }
 
   @Test
