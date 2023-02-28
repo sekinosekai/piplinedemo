@@ -7,9 +7,9 @@ public class NumberSum {
 
   Calculator calcer = new Calculator();
 
-  public int sumCalc(Integer[] numbers) {
+  public int sumCalc(int[] numbers) {
     Stack<Integer> numstack = new Stack<Integer>();
-    numstack.addAll(Arrays.asList(numbers));
+    numstack.addAll(Arrays.asList(Arrays.stream(numbers).boxed().toArray(Integer[]::new)));
     // exception when numstack is empty
     int res = numstack.pop();
     int temp;

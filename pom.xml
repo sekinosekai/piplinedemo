@@ -5,25 +5,19 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
 
+  <groupId>csdc.apps.demo.cicd</groupId>
+  <artifactId>pipelinedemo</artifactId>
+  <version>${revision}</version>
+
   <properties>
+    <revision>1.0.0-SNAPSHOT</revision>
     <junit.version>4.13.1</junit.version>
   </properties>
-  <groupId>cn.chinaclear.sh.apps.demo.cicd</groupId>
-  <artifactId>pipelinedemo</artifactId>
-  <version>1.0.0-RELEASE</version>
+
   <modules>
     <module>calculator</module>
   </modules>
-  <dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  </dependencyManagement>
+
   <build>
     <plugins>
       <plugin>
@@ -31,6 +25,51 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.10</version>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>1.2.7</version>
+        <configuration>
+          <updatePomfile>true</updatePomfile>
+          <flattenMode>resolveCiFriendliesOnly</flattenMode>
+        </configuration>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <phase>process-resources</phase>
+            <goals><goal>flatten</goal></goals>
+          </execution>
+          <execution>
+            <id>flatten.clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+  <dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  </dependencyManagement>
+  <distributionManagement>
+    <repository>
+      <id>nexus-releases</id>
+      <name>Nexus Releases</name>
+      <url>https://packages.aliyun.com/maven/repository/2324045-release-65MdLN</url>
+    </repository>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <name>Nexus Snapshots</name>
+      <url>https://packages.aliyun.com/maven/repository/2324045-snapshot-zIs8Am</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>

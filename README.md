@@ -1,3 +1,3 @@
 # pipelineDemo
 
-a simple demo for ~~gitlab-runner~~ aliyun flow
+a simple demo for gitlab-runner
