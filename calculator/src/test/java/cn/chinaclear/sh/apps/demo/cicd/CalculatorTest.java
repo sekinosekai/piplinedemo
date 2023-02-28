@@ -1,3 +1,9 @@
+/*
+ * @Author: Yuyuan SHI
+ * @Date: 2023-02-28
+ * @FilePath: /piplinedemo/calculator/src/test/java/cn/chinaclear/sh/apps/demo/cicd/CalculatorTest.java
+ * 
+ */
 package cn.chinaclear.sh.apps.demo.cicd;
 
 import static org.junit.Assert.assertEquals;
@@ -27,7 +33,7 @@ public class CalculatorTest {
 
   @Test
   public void testMultiply() throws Exception {
-    assertEquals(11, calculator.calc(2, 5, '*'));
+    assertEquals(10, calculator.calc(2, 5, '*'));
   }
 
   @Test
